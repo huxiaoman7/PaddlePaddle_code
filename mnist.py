@@ -32,6 +32,38 @@ def convolutional_neural_network_org(img):
         input=conv_pool_2, size=10, act=paddle.activation.Softmax())
     return predict
 
+# 改进版网络结构
+def convolutional_neural_network(img):
+    # 第一层卷积层
+    conv_pool_1 = paddle.networks.simple_img_conv_pool(
+        input=img,
+        filter_size=5,
+        num_filters=20,
+        num_channel=1,
+        pool_size=2,
+        pool_stride=2,
+        act=paddle.activation.Relu())
+    # 加一层dropout层
+    drop_1 = paddle.layer.dropout(input=conv_pool_1, dropout_rate=0.2)
+    # 第二层卷积层
+    conv_pool_2 = paddle.networks.simple_img_conv_pool(
+        input=drop_1,
+        filter_size=5,
+        num_filters=50,
+        num_channel=20,
+        pool_size=2,
+        pool_stride=2,
+        act=paddle.activation.Relu())
+    # 加一层dropout层
+    drop_2 = paddle.layer.dropout(input=conv_pool_2, dropout_rate=0.5)
+    # 全连接层
+    fc1 = paddle.layer.fc(input=drop_2, size=10, act=paddle.activation.Linear())
+    bn = paddle.layer.batch_norm(input=fc1,act=paddle.activation.Relu(),
+         layer_attr=paddle.attr.Extra(drop_rate=0.2))
+    predict = paddle.layer.fc(input=bn, size=10, act=paddle.activation.Softmax())
+    return predict
+
+
 def main():
     # 初始化定义跑模型的设备
     paddle.init(use_gpu=with_gpu, trainer_count=1)
@@ -43,6 +75,7 @@ def main():
         name='label', type=paddle.data_type.integer_value(10))
 
     # 调用之前定义的网络结构
+    # predict = convolutional_neural_network_org(images)#原网络结构    
     predict = convolutional_neural_network(images)
 
     # 定义损失函数
@@ -85,9 +118,9 @@ def main():
     trainer.train(
         reader=paddle.batch(
             paddle.reader.shuffle(paddle.dataset.mnist.train(), buf_size=8192),
-            batch_size=128),
+            batch_size=64),
         event_handler=event_handler,
-        num_passes=10)
+        num_passes=50)
 
     # 找到训练误差最小的一次结果
     best = sorted(lists, key=lambda list: float(list[1]))[0]
