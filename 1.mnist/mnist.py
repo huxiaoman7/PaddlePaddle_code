@@ -1,4 +1,8 @@
 #coding:utf-8
+'''
+Copyright by huxiaoman 2018.10.28
+mnist.py
+'''
 import os
 from PIL import Image
 import numpy as np
