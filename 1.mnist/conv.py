@@ -23,3 +23,10 @@ class Conv:
     def __init__(self, c, w, h, k_x, k_y, s_x, s_y, p_x, p_y, f):
 	self.c, self.w, self.h = c, w, h
 	self.k_x, self.k_y = k_x,k_y
+        self.s_x, self.s_y = s_x, s_y
+	self.p_x, self.p_y = p_x, p_y
+	self.f = f
+	# 判断水平方向上的卷积层输出的神经元个数为整数
+	assert ((w - k_x + 2 * p_x) % s_x ==0)
+	# 判断垂直方向上的卷积层输出的神经元个数为整数
+	assert ((w - k_y + 2 * p_y) % s_y ==0)
