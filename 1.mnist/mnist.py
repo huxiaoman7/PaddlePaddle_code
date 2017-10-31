@@ -1,7 +1,8 @@
 #coding:utf-8
 '''
-Copyright by huxiaoman 2017.10.28
-mnist.py
+Created by huxiaoman 2017.10.28
+Copyright huxiaoman 
+mnist.py:using paddlepaddle framework to train a simple cnn network,and improve the baseline network,the accuracy of improved network is 99.28% 
 '''
 import os
 from PIL import Image
