@@ -71,7 +71,7 @@ class Conv:
 	self.px = self.padding(x)
 	self.evalx = self.eval(self.px)
 	self.y = (self.evalx.dot(self.weights.T) + self.bias).transpose(0,3,1,2)
-	
+	print self. y	
 	return self.y
 
     def backward(self,b):
@@ -92,6 +92,7 @@ if __name__ == '__main__':
 	data = np.ones((6,1,5,5))
 	x1 = test.forward(data)
 	x2 = test.backward(x1)
-	print x2
+	print x1.shape
+	print x2.shape
 
 	
