@@ -42,3 +42,15 @@ class Conv:
 	zero = np.zeros((zero_num[0], zero_num[1], zero_num[2] + 2* self.p_x, zero_num[3] + 2* self.p_y))
 	x = zero[:, :, self.p_x:self.p_x + self.w, self.p_y:self.p_y + self.h]
 	return zero
+
+    def forward(self,x):
+	assert (x.shape[1] == self.c)
+	assert (x.shape[2] == self.w)
+	assert (x.shape[3] == self.h)
+	self.px = self.pad(x)
+	self.evalx = self.eval(self.px)
+	self.y = (self.evalx.dot(self.weights.T) + self.bias).transpose(0,3,1,2)
+	
+	return self.y
+
+	
