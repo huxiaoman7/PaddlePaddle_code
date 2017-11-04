@@ -53,4 +53,24 @@ class Conv:
 	
 	return self.y
 
+    def backward(self,b):
+        a1, a2, a3, a4 = b.shape
+	self.ddx = np.array([dd.T.dot(self.weights) for dd in b])
+        self.dx = self.de_eval_pad(self.ddx)
+        b = b.reshape(a1, a2, a3 * a4)
+        self.evalx = self.evalx.reshape(a1, a3 * a4, self.c * self.k_x * self.k_y)
+        self.dw = np.sum([dd.dot(x) for x, dd in zip(self.evalx, b)], axis=0) / a1 / a3 / a4
+        self.db = np.sum(d, axis=(0, 2)) / a1 / a3 / a4
+
+        self.weights -= self.lr * (self.dw + self.lamb * np.sum(np.square(self.weights)) / a1)
+        self.bias -= self.lr * self.db
+	return self.dx
+
+if __name__ == '__main__':
+	test = Convolution(1,13,13,1,1,1,1,3,3,32)
+	data = np.ones((100,1,13,13))
+	x1 = test.forward(data)
+	x2 = test.backward(x1)
+	print x2
+
 	
