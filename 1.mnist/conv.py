@@ -30,9 +30,9 @@ class Conv:
 	assert ((w - k_x + 2 * p_x) % s_x ==0)
 	# 判断垂直方向上的卷积层输出的神经元个数为整数
 	assert ((h - k_y + 2 * p_y) % s_y ==0)
-	self.w_num = (w - k_x + 2 * p_x) % s_x) + 1
-	self.h_num = (h - k_y + 2 * p_y) % s_y) + 1
-	self.weights = np.random.randn(f, c * k_x * k_y) / nq.sqrt(c * k_x * k_y)
+	self.w_num = (w - k_x + 2 * p_x) / s_x + 1
+	self.h_num = (h - k_y + 2 * p_y) / s_y + 1
+	self.weights = np.random.randn(f, c * k_x * k_y) / np.sqrt(c * k_x * k_y)
 	self.bias = np.random.randn(f)
 	self.lr,self.lamb = 0.0, 0.0
 
@@ -43,11 +43,32 @@ class Conv:
 	x = zero[:, :, self.p_x:self.p_x + self.w, self.p_y:self.p_y + self.h]
 	return zero
 
+    def eval(self,x):
+	ww = self.h - self.k_x + 2 * self.p_x + 1
+	hh = self.h - self.k_y + 2 * self.p_y + 1
+	ret = np.array([[[np.ravel(xx[:, a:a + self.k_x, b:b + self.k_y]) for b in range(0, hh, self.s_y)]
+                         for a in range(0, ww, self.s_x)] for xx in x])
+	#ret = np.array([[[np.ravel(xx[:,a:a +self.k_x, b:b, self.k_y]) for b in range(0,hh,self.s_y)] for a in range(0,ww,self.s_x)] for xx in x])# here using np.ravel rather than np.flatten to save memory
+	return ret
+    
+    def de_eval(self,x):
+	a1, a2, a3, a4 = x.shape
+        x = x.reshape(a1, a2, a3, self.c, self.k_x, self.k_y)
+        ret = np.zeros_like(self.px)
+        for i in range(a1):
+            for j in range(a2):
+                w = j * self.s_x
+                for t in range(a3):
+                    h = t * self.s_y
+                    ret[i][:, w:w + self.k_x, h:h + self.k_y] += x[i][j][t]
+        return ret[:, :, self.p_x:self.p_x + self.w, self.p_y:self.p_y + self.h]
+
+
     def forward(self,x):
 	assert (x.shape[1] == self.c)
 	assert (x.shape[2] == self.w)
 	assert (x.shape[3] == self.h)
-	self.px = self.pad(x)
+	self.px = self.padding(x)
 	self.evalx = self.eval(self.px)
 	self.y = (self.evalx.dot(self.weights.T) + self.bias).transpose(0,3,1,2)
 	
@@ -56,19 +77,19 @@ class Conv:
     def backward(self,b):
         a1, a2, a3, a4 = b.shape
 	self.ddx = np.array([dd.T.dot(self.weights) for dd in b])
-        self.dx = self.de_eval_pad(self.ddx)
+        self.dx = self.de_eval(self.ddx)
         b = b.reshape(a1, a2, a3 * a4)
         self.evalx = self.evalx.reshape(a1, a3 * a4, self.c * self.k_x * self.k_y)
         self.dw = np.sum([dd.dot(x) for x, dd in zip(self.evalx, b)], axis=0) / a1 / a3 / a4
-        self.db = np.sum(d, axis=(0, 2)) / a1 / a3 / a4
+        self.db = np.sum(b, axis=(0, 2)) / a1 / a3 / a4
 
         self.weights -= self.lr * (self.dw + self.lamb * np.sum(np.square(self.weights)) / a1)
         self.bias -= self.lr * self.db
 	return self.dx
 
 if __name__ == '__main__':
-	test = Convolution(1,13,13,1,1,1,1,3,3,32)
-	data = np.ones((100,1,13,13))
+	test = Conv(1,5,5,1,1,1,1,3,3,32)
+	data = np.ones((6,1,5,5))
 	x1 = test.forward(data)
 	x2 = test.backward(x1)
 	print x2
