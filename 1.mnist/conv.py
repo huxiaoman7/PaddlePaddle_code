@@ -91,7 +91,9 @@ if __name__ == '__main__':
 	# 带入数值计算
 	test = Conv(1,5,5,1,1,1,1,3,3,32)
 	data = np.ones((6,1,5,5))
+	# 前向传播
 	x1 = test.forward(data)
+	# 反向传播
 	x2 = test.backward(x1)
 	print x1.shape
 	print x2.shape
