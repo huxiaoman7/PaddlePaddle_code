@@ -88,6 +88,7 @@ class Conv:
 	return self.dx
 
 if __name__ == '__main__':
+	# 带入数值计算
 	test = Conv(1,5,5,1,1,1,1,3,3,32)
 	data = np.ones((6,1,5,5))
 	x1 = test.forward(data)
