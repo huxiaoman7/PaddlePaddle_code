@@ -19,7 +19,7 @@
 #### 2.[【深度学习系列】PaddlePaddle之手写数字识别](http://www.cnblogs.com/charlotte77/p/7712856.html)
 #### 3.[【深度学习系列】手写数字识别--卷积神经网络CNN原理详解(一)](http://www.cnblogs.com/charlotte77/p/7759802.html)
 #### 4.[【深度学习系列】PaddlePaddle之数据预处理](http://www.cnblogs.com/charlotte77/p/7802226.html)
-#### 5.【深度学习系列】手写数字识别--卷积神经网络CNN原理详解(三)
+#### 5.【深度学习系列】手写数字识别--卷积神经网络CNN原理详解(二)
 #### 6.【深度学习系列】图像识别原理详解
 #### 7.【深度学习系列】神经网络基础知识点归纳
 #### 8.【深度学习系列】基本coding归纳
