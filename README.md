@@ -3,8 +3,9 @@
 ------
 
 > * [本项目地址](https://github.com/huxiaoman7/PaddlePaddle_code.git):https://github.com/huxiaoman7/PaddlePaddle_code.git
-> * [本项目博客文章](http://www.cnblogs.com/charlotte77/):http://www.cnblogs.com/charlotte77/
-
+> * [博客地址](http://www.cnblogs.com/charlotte77/):http://www.cnblogs.com/charlotte77/
+> * [知乎专栏](https://zhuanlan.zhihu.com/deeplearning-charlotte)
+> * [简书](http://www.jianshu.com/c/fef335011ed4)
 ------
 ### 所需环境
 
