@@ -1,3 +1,9 @@
+#coding:utf-8
+'''
+Created by huxiaoman 2017.11.08
+mnist_data.py: extracing mnist dataset and create reader_creator to convert data format to train and test.
+more can see in the paddlepaddle source code : https://github.com/PaddlePaddle/Paddle/blob/develop/python/paddle/v2/dataset/mnist.py
+'''
 import paddle.v2.dataset.common
 import subprocess
 import numpy
