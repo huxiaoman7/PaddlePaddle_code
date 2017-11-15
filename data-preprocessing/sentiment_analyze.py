@@ -1,3 +1,8 @@
+#coding:utf-8
+'''
+Created by huxiaoman 2017.11.15
+sentiment_analyze.py: create reader_creator to convert text data to train and test
+'''
 import os
 
 def train_reader(data_dir, word_dict, label_dict):
