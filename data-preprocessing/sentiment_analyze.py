@@ -1,6 +1,5 @@
 import os
 
-
 def train_reader(data_dir, word_dict, label_dict):
     """
    创建训练数据reader
