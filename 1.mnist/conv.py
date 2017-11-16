@@ -1,6 +1,7 @@
 #coding:utf-8
 '''
 Created by huxiaoman 2017.10.31
+Update by huxiaoman 2017.11.15
 Copyright huxiaoman
 conv.py:to implement a simple convolutional network,includig convolutional,padding,maxpolling,forwarf_propogation and backpropogation process.
 '''
@@ -18,7 +19,7 @@ class Conv:
     s_y:stride_y,垂直步长长度
     p_x:zero_padding_x,水平补零长度
     p_y:zero_padding_y,垂直补零长度
-    f:feature,特征数目
+    f:feature,卷积核数目
     '''
     def __init__(self, c, w, h, k_x, k_y, s_x, s_y, p_x, p_y, f):
 	self.c, self.w, self.h = c, w, h
@@ -44,6 +45,7 @@ class Conv:
 	return zero
 
     def eval(self,x):
+	# 补零后的宽度ww和高度hh
 	ww = self.h - self.k_x + 2 * self.p_x + 1
 	hh = self.h - self.k_y + 2 * self.p_y + 1
 	ret = np.array([[[np.ravel(xx[:, a:a + self.k_x, b:b + self.k_y]) for b in range(0, hh, self.s_y)]
