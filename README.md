@@ -18,7 +18,7 @@
 ### 博文目录(最新更新时间：2017.11.8)
 #### 1.[ 序言--三个月教你从零入门深度学习](http://www.cnblogs.com/charlotte77/p/7735611.html)
 #### 2.[【深度学习系列】PaddlePaddle之手写数字识别](http://www.cnblogs.com/charlotte77/p/7712856.html)
-#### 3.[【深度学习系列】手写数字识别--卷积神经网络CNN原理详解(一)](http://www.cnblogs.com/charlotte77/p/7759802.html)
+#### 3.[【深度学习系列】卷积神经网络CNN原理详解(一)————基本原理](http://www.cnblogs.com/charlotte77/p/7759802.html)
 #### 4.[【深度学习系列】PaddlePaddle之数据预处理](http://www.cnblogs.com/charlotte77/p/7802226.html)
 #### 5.【深度学习系列】手写数字识别--卷积神经网络CNN原理详解(二)
 #### 6.【深度学习系列】图像识别原理详解
