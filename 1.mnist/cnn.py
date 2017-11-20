@@ -105,7 +105,7 @@ class ReluActivators(object):
 		return max(0, weighted_input)
 
 	def backward(self,output):
-		return if output > 0 else 0
+		return 1 if output > 0 else 0
 
 class SigmoidActivator(object):
 		
