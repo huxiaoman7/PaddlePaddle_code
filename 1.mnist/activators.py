@@ -1,6 +1,8 @@
-#!/usr/bin/env python
-# -*- coding: UTF-8 -*-
-
+#codinf:utf-8
+'''
+Copyright by huxiaoman 2017.11.21
+activators.py: some common activation functions, relu, sigmoid, tanh included
+'''
 
 import numpy as np
 
