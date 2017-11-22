@@ -4,6 +4,7 @@ Created by huxiaoman 2017.10.31
 Update by huxiaoman 2017.11.15
 Copyright huxiaoman
 conv.py:to implement a simple convolutional network,includig convolutional,padding,maxpolling,forwarf_propogation and backpropogation process.
+###暂时不要用这个程序，写的有点问题，输出结果不确定是对的 = =
 '''
 
 import numpy as np
