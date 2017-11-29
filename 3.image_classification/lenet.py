@@ -1,5 +1,8 @@
 #coding:utf-8
-
+'''
+Created by huxiaoman 2017.11.27
+lenet.py:LeNet-5网络结构
+'''
 import os
 from PIL import Image
 import numpy as np
