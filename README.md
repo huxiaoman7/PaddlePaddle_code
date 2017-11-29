@@ -15,14 +15,14 @@
 > * paddlepaddle(或paddlepaddle-gpu)
 ------
 
-### 博文目录(最新更新时间：2017.11.22)
+### 博文目录(最新更新时间：2017.11.29)
 #### 1.[ 序言--三个月教你从零入门深度学习](http://www.cnblogs.com/charlotte77/p/7735611.html)
 #### 2.[【深度学习系列】PaddlePaddle之手写数字识别](http://www.cnblogs.com/charlotte77/p/7712856.html)
 #### 3.[【深度学习系列】卷积神经网络CNN原理详解(一)——基本原理](http://www.cnblogs.com/charlotte77/p/7759802.html)
 #### 4.[【深度学习系列】PaddlePaddle之数据预处理](http://www.cnblogs.com/charlotte77/p/7802226.html)
 #### 5.[【深度学习系列】卷积神经网络详解(二)——自己手写一个卷积神经网络](http://www.cnblogs.com/charlotte77/p/7783261.html)
-#### 6.【深度学习系列】图像识别原理详解
-#### 7.【深度学习系列】神经网络基础知识点归纳
+#### 6.[【深度学习系列】用PaddlePaddle和Tensorflow进行图像分类](http://www.cnblogs.com/charlotte77/p/7906363.html)
+#### 7.【深度学习系列】用PaddlePaddle和Tensorflow实现AlexNet与Vgg
 #### 8.【深度学习系列】基本coding归纳
 ------
 
