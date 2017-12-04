@@ -4,8 +4,6 @@
 import pandas as pd
 import numpy as np
 import random
-from sklearn import preprocessing
-import paddle.v2 as paddle
 
 #读取文件数据
 def reader(filename):
@@ -143,8 +141,6 @@ class AutoEncoder():
                 self.A[iLayer] = self.sigmod(self.Z[iLayer] + self.B[iLayer])
                 print "\t layer=%d" % iLayer, self.A[iLayer]
 
-
-
 def batch_train(data,batch_size):
     input_data = input(data,batch_size)
     count  = len(data)/batch_size
@@ -154,21 +150,12 @@ def batch_train(data,batch_size):
         attr = AutoEncoder(data,data,nNodes)
         print "第%d个batch" %i, attr.PlainAutoEncoder()
 
-
-            
-
-
-
-
-
-
 def main(filename):
     file = reader(filename)
     data = batch_reader(file)
     ae2 = AutoEncoder(data,data,nNodes)
     ae2.PlainAutoEncoder()
     ae2.ValidateAutoEncoder()
-
 
 if __name__=='__main__':
     # 内置生成的array数据
