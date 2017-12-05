@@ -23,7 +23,7 @@
 #### 5.[【深度学习系列】卷积神经网络详解(二)——自己手写一个卷积神经网络](http://www.cnblogs.com/charlotte77/p/7783261.html)
 #### 6.[【深度学习系列】用PaddlePaddle和Tensorflow进行图像分类](http://www.cnblogs.com/charlotte77/p/7906363.html)
 #### 7.【深度学习系列】用PaddlePaddle和Tensorflow实现AlexNet与Vgg
-#### 8.【深度学习系列】基本coding归纳
+#### 8.【深度学习系列】用PaddlePaddle和Tensorflow实现googleNet
 ------
 
 ### 参考资料
