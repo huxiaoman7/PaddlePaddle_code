@@ -1,16 +1,14 @@
 #coding:utf-8
 '''
-Created by huxiaoman 2017.11.27
-train_lenet.py:训练lenet对cifar10数据集进行分类
+Created by huxiaoman 2017.12.12
+train_vgg.py:训练vgg16对cifar10数据集进行分类
 '''
 
 import sys, os
-
 import paddle.v2 as paddle
 from vggnet import vgg
 
 with_gpu = os.getenv('WITH_GPU', '0') != '1'
-
 
 def main():
     datadim = 3 * 32 * 32
@@ -21,11 +19,7 @@ def main():
 
     image = paddle.layer.data(
         name="image", type=paddle.data_type.dense_vector(datadim))
-
-    # Add neural network config
-    # option 1. resnet
-    # net = resnet_cifar10(image, depth=32)
-    # option 2. vgg
+    
     net = vgg(image)
 
     out = paddle.layer.fc(
@@ -96,13 +90,7 @@ def main():
         im = Image.open(file)
         im = im.resize((32, 32), Image.ANTIALIAS)
         im = np.array(im).astype(np.float32)
-        # The storage order of the loaded image is W(widht),
-        # H(height), C(channel). PaddlePaddle requires
-        # the CHW order, so transpose them.
         im = im.transpose((2, 0, 1))  # CHW
-        # In the training phase, the channel order of CIFAR
-        # image is B(Blue), G(green), R(Red). But PIL open
-        # image in RGB mode. It must swap the channel order.
         im = im[(2, 1, 0), :, :]  # BGR
         im = im.flatten()
         im = im / 255.0
@@ -111,10 +99,6 @@ def main():
     test_data = []
     cur_dir = os.path.dirname(os.path.realpath(__file__))
     test_data.append((load_image(cur_dir + '/image/dog.png'), ))
-
-    # users can remove the comments and change the model name
-    # with open('params_pass_50.tar', 'r') as f:
-    #    parameters = paddle.parameters.Parameters.from_tar(f)
 
     probs = paddle.infer(
         output_layer=out, parameters=parameters, input=test_data)
