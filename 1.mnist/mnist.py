@@ -80,8 +80,8 @@ def main():
         name='label', type=paddle.data_type.integer_value(10))
 
     # 调用之前定义的网络结构
-    # predict = convolutional_neural_network_org(images)#原网络结构    
-    predict = convolutional_neural_network(images)
+    predict = convolutional_neural_network_org(images)#原网络结构    
+    # predict = convolutional_neural_network(images)
 
     # 定义损失函数
     cost = paddle.layer.classification_cost(input=predict, label=label)
