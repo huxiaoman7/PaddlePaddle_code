@@ -26,6 +26,7 @@
 #### 8.[【深度学习系列】用PaddlePaddle和Tensorflow实现经典CNN网络Vgg](http://www.cnblogs.com/charlotte77/p/8028651.html)
 #### 9.[【深度学习系列】用PaddlePaddle和Tensorflow实现经典CNN网络GoogLeNet](http://www.cnblogs.com/charlotte77/p/8066867.html)
 #### 10.[【深度学习系列】用PaddlePaddle和Tensorflow实现GoogLeNet InceptionV2/V3/V4](http://www.cnblogs.com/charlotte77/p/8127780.html)
+#### 11.[【深度学习系列】关于PaddlePaddle的一些避“坑”技巧](http://www.cnblogs.com/charlotte77/p/8270710.html)
 ------
 
 ### 参考资料
