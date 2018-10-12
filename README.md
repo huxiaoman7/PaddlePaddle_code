@@ -29,6 +29,12 @@
 #### 11.[【深度学习系列】关于PaddlePaddle的一些避“坑”技巧](http://www.cnblogs.com/charlotte77/p/8270710.html)
 #### 12.[【深度学习系列】CNN模型的可视化](https://www.cnblogs.com/charlotte77/p/8343700.html)
 #### 13.[【深度学习系列】PaddlePaddle可视化之VisualDL](http://www.cnblogs.com/charlotte77/p/8358194.html)
+#### 14.[【深度学习系列】迁移学习Transfer Learning](http://www.cnblogs.com/charlotte77/p/8399926.html)
+#### 15.[【深度学习系列】用PaddlePaddle进行车牌识别（一）](http://www.cnblogs.com/charlotte77/p/8431077.html)
+#### 16.[【深度学习系列】用PaddlePaddle进行车牌识别（二）](http://www.cnblogs.com/charlotte77/p/8646960.html)
+#### 17.[【深度学习系列】PaddlePaddle垃圾邮件处理实战（一）](http://www.cnblogs.com/charlotte77/p/9071775.html)
+#### 18.[深度学习系列】PaddlePaddle垃圾邮件处理实战（二）](https://www.cnblogs.com/charlotte77/p/9143536.html)
+
 ------
 
 ### 参考资料

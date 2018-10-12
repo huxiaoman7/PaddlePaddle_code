@@ -10,7 +10,7 @@ import numpy as np
 import paddle.v2 as paddle
 
 # 设置是否用gpu，0为否，1为是
-with_gpu = os.getenv('WITH_GPU', '0') != '1'
+with_gpu = os.getenv('WITH_GPU', '0') != '0'
 
 # 定义网络结构
 def convolutional_neural_network_org(img):
@@ -78,6 +78,7 @@ def main():
         name='pixel', type=paddle.data_type.dense_vector(784))
     label = paddle.layer.data(
         name='label', type=paddle.data_type.integer_value(10))
+    print label
 
     # 调用之前定义的网络结构
     predict = convolutional_neural_network_org(images)#原网络结构    
