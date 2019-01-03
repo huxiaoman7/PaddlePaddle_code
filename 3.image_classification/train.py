@@ -1,3 +1,4 @@
+# coding:utf-8
 import gzip
 import paddle.v2.dataset.flowers as flowers
 import paddle.v2 as paddle
