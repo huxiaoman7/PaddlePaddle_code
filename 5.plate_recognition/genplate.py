@@ -85,7 +85,7 @@ def tfactor(img):
     img = cv2.cvtColor(hsv,cv2.COLOR_HSV2BGR);
     return img
 
-def random_envirment(img,data_set):
+def random_environment(img,data_set):
     """
     添加自然环境的噪声    
     """
@@ -179,7 +179,7 @@ class GenPlate:
             com = rot(com,r(60)-30,com.shape,30);
             com = rotRandrom(com,10,(com.shape[1],com.shape[0]));
             com = tfactor(com)
-            com = random_envirment(com,self.noplates_path);
+            com = random_environment(com,self.noplates_path);
             com = AddGauss(com, 1+r(4));
             com = addNoise(com);
             return com
